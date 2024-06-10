@@ -1,0 +1,31 @@
+@import "../../../sass/styles.scss";
+
+$toast-padding: 16px;
+$toast-icon-size: 20px;
+$toast-font-weight: 700;
+
+.toast-container {
+  top: $toast-padding;
+  right: $toast-padding;
+  color: $white;
+  font-weight: $toast-font-weight;
+}
+
+.toast {
+  &.success {
+    background-color: $success;
+  }
+
+  &.error {
+    background-color: $error;
+  }
+
+  &.warning {
+    background-color: $warning;
+  }
+
+  &.info {
+    background-color: $info;
+  }
+}
+
