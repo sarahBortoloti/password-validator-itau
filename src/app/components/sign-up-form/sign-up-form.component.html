@@ -29,6 +29,9 @@
       <label class="form-check-label" for="agreeTermsAndConditions">
         Concordo com os termos e condições
       </label>
+    </div>
+
+    <div class="d-flex justify-content-center">
       <app-form-help-text *ngIf="isFieldInvalid('agreeTerms')" message="Você deve concordar com os termos e condições"
         [error]="true" />
     </div>
