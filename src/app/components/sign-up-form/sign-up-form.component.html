@@ -1,0 +1,53 @@
+<form class="row g-1 justify-content-center" (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
+  <div class="col-10">
+    <label for="name" class="form-label">Nome</label>
+    <input formControlName="name" type="text" class="form-control" id="name">
+    <app-form-help-text *ngIf="isFieldInvalid('name')" message="Nome é obrigatório" [error]=true />
+  </div>
+
+  <div class="col-10">
+    <label for="email" class="form-label">Email</label>
+    <input formControlName="email" type="email" class="form-control" id="email">
+    <app-form-help-text *ngIf="isFieldInvalid('email')" message="Email é obrigatório" [error]=true />
+  </div>
+
+  <div class="col-10">
+    <label for="username" class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <input type="text" formControlName="username" class="form-control" id="username">
+    </div>
+    <app-form-help-text *ngIf="isFieldInvalid('username')" message="Username é obrigatório" [error]=true />
+  </div>
+
+  <div class="col-10">
+    <app-password-validator [passwordControl]="getPasswordControl()" (passwordChange)=" onPasswordChange($event)" />
+  </div>
+
+  <div class="col-12 mt-1">
+    <div class="form-check d-flex justify-content-center gap-2">
+      <input formControlName="agreeTerms" class="form-check-input" type="checkbox" id="agreeTermsAndConditions">
+      <label class="form-check-label" for="agreeTermsAndConditions">
+        Concordo com os termos e condições
+      </label>
+      <app-form-help-text *ngIf="isFieldInvalid('agreeTerms')" message="Você deve concordar com os termos e condições"
+        [error]="true" />
+    </div>
+  </div>
+
+  <div class="col-12 d-flex justify-content-center">
+    <button type="submit" class="btn w-50 gap-2 btn-primary mt-4" [disabled]="isLoading || signUpForm.invalid">
+      <ng-container *ngIf="!isLoading; else loadingContent">
+        Registrar-se
+      </ng-container>
+
+      <ng-template #loadingContent>
+        <div>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </div>
+        <span>Carregando...</span>
+      </ng-template>
+    </button>
+  </div>
+
+  <app-toast />
+</form>
