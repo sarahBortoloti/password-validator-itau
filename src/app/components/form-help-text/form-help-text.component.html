@@ -1,0 +1,4 @@
+<div class="d-flex w-100 gap-1 mt-0" [ngClass]="{'valid-feedback': success, 'invalid-feedback': error}">
+  <fa-icon [icon]="success ? faCheck : faTimes"></fa-icon>
+  {{ message }}
+</div>
