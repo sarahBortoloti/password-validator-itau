@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-itau">
+  <div class="container-fluid gap-lg-5">
+    <a class="navbar-brand mx-0" href="#">
+      <img src="../../assets/itau-logo.png" alt="Logo" height="48">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa fa-bars nav-toggler-icon" aria-hidden="true">
+        <fa-icon [icon]="faBars"></fa-icon>
+      </span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav w-100 me-auto mb-2 mb-lg-0 align-items-center">
+        <li class="nav-item" *ngFor="let navItem of navItems">
+          <a class="nav-link" href="#">{{navItem.text}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

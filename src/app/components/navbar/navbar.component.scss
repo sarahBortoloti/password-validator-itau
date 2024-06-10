@@ -1,0 +1,54 @@
+@import "../../../sass/styles.scss";
+
+$navbar-padding-small: 16px;
+$navbar-padding-large: 128px;
+$navbar-padding-y: 10px;
+$navbar-hover-border-height: 4px;
+$navbar-hover-border-offset: -12px;
+$navbar-toggler-icon-size: 32px;
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'lg' {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+}
+
+.navbar-itau {
+  width: 100%;
+  background-color: $primary;
+  padding: $navbar-padding-y $navbar-padding-small;
+
+  @include respond-to('lg') {
+    padding: $navbar-padding-y $navbar-padding-large;
+  }
+
+  .nav-link {
+    position: relative;
+    color: $white;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: $navbar-hover-border-offset;
+        width: 100%;
+        height: $navbar-hover-border-height;
+        background-color: $white;
+      }
+    }
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  .nav-toggler-icon {
+    color: $white;
+    font-size: $navbar-toggler-icon-size;
+  }
+}
