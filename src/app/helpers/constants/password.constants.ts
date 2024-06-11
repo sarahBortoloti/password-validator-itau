@@ -22,7 +22,8 @@ export const passwordValidatorsMessages = [
   },
   {
     validatorType: 'pwHaveForbiddenCharacters',
-    message: 'A senha não pode conter caracteres inválidos, como espaços.',
+    message:
+      'A senha não pode conter caracteres inválidos, como espaços ou outros caracteres especiais.',
   },
   {
     validatorType: 'pwHaveRepeatedDigits',
